@@ -9,6 +9,7 @@ export const useUserStore = defineStore({
 
   actions: {
     logout() {
+      this.id = "";
       //TODO: implementar esto
     },
     /**
@@ -16,9 +17,11 @@ export const useUserStore = defineStore({
      * @param {string} user
      */
     async login(id, accessToken) {
+      this.id = id;
       //TODO: implementar esto
     },
     isAuthenticated() {
+      return this.id !== "";
       //TODO: implementar esto
     },
   },
