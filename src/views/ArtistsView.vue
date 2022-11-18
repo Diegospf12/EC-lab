@@ -20,8 +20,8 @@ export default {
   async created() {
     //TODO: pass album id
     const artistAlbums = await spotifyAPI.getArtistAlbums(undefined);
-    console.log(artistAlbums)
     this.albums = artistAlbums.items;
+    console.log(this.albums);
   },
 };
 </script>
@@ -30,7 +30,26 @@ export default {
   <div class="main">
     <div class="albums-container">
       {{/*TODO: Mandar los datos del album. Mira el componente para ver que se manda. Recuerda iterar porque son varios albums*/ }}
-      <ArtistAlbumComponent></ArtistAlbumComponent>
+      <table class=table>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name Album</th>
+            <th scope="col">Name Artist</th>
+            <th scope="col">Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(album, index) in albums" :key="index">
+            <ArtistAlbumComponent
+            :name="album.name"
+            :tracks="album.tracks"
+            :img="album.img"
+            :date="album.date"
+            />
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
