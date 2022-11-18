@@ -10,6 +10,9 @@ export default {
     {{ displayName }}
   </div>
   <div>
+    {{ img }}
+  </div>
+  <div>
     {{ followers }}
   </div>
 </template>
