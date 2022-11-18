@@ -16,6 +16,8 @@ export default {
   },
   async created() {
     const userData = await spotifyAPI.getUser();
+    this.displayName = userData.display_name
+    this.followers = userData.followers["total"]
     //TODO: implementar esto. llenar los datos del usuario
   },
 };
